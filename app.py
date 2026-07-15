@@ -62,7 +62,11 @@ st.markdown("""
             font-size: 1.1em;
         }
         div[data-baseweb="tab-list"] {
-            justify-content: center;
+            justify-content: center !important;
+        }
+        .stTabs [data-baseweb="tab-list"] {
+            justify-content: center !important;
+            width: 100%;
         }
     </style>
 """, unsafe_allow_html=True)
