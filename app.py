@@ -80,9 +80,9 @@ def count_chars(text: str) -> int:
 
 def call_groq(system_prompt: str, user_prompt: str, max_tokens: int):
     """Single Groq call. Returns (text, error) — error is None on success."""
-    api_key = os.environ.get("GROQ_API_KEY")
+    api_key = os.environ.get("GROQ_API_KEY") or st.secrets.get("GROQ_API_KEY")
     if not api_key:
-        return None, "GROQ_API_KEY not found. Check your .env file."
+        return None, "GROQ_API_KEY not found. Check your .env file or Streamlit secrets."
 
     client = Groq(api_key=api_key)
     try:
